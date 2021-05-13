@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Image,Divider, Container } from 'semantic-ui-react'
+import { Image } from 'react-bootstrap';
 import i1 from '../homeImage/1.jpg';
 import i2 from '../homeImage/2.jpg';
 import i3 from '../homeImage/3.jpg';
@@ -26,42 +26,76 @@ export const Home = () => {
 
 
     return (
-        <div>
-            <Divider hidden />
-            <div>
-                <Header as='h1' textAlign='center'>Playing with Game Of Thrones API</Header>
+
+
+        <div class="row row-cols-1 row-cols-md-2 g-4" style={{padding:'20px'}}>
+            <div class="col" style={{padding:'10px'}}>
+                <Image src={i1} fluid style={{padding:'10px'}}/>
             </div>
-            <Divider hidden />
-            <Divider hidden />
-            <div style={{paddingLeft:'100px'}}>
-                <Container >
-                <Image.Group size='medium' centered>
-                    <Image src={i1} />
-                    <Image src={i2} />
-                    <Image src={i3} />
-                    <Image src={i4} />
-                    <Image src={i5} />
-                    <Image src={i6} />
-                    <Image src={i7} />
-                    <Image src={i8} />
-                    <Image src={i9} />
-                    <Image src={i10} />
-                    <Image src={i11} />
-                    <Image src={i12} />
-                    <Image src={i13} />
-                    <Image src={i14} />
-                    <Image src={i15} />
-                    <Image src={i16} />
-                    <Image src={i17} />
-                    <Image src={i18} />
-                    <Image src={i19} />
-                    <Image src={i20} />
-                    <Image src={i21} />
-                </Image.Group>
-
-                </Container>
-                            </div>
-
+            <div class="col">
+                <Image src={i2} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i3} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i4} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i5} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i6} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i7} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i8} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i9} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i10} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i11} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i12} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i13} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i14} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i15} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i16} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i17} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i18} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i19} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i20} fluid style={{padding:'10px'}}/>
+            </div>
+            <div class="col">
+                <Image src={i21} fluid style={{padding:'10px'}}/>
+            </div>
         </div>
+
+
+
+
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card,Image,Segment,Loader } from 'semantic-ui-react';
+import {Spinner, Card} from 'react-bootstrap';
 
 
 const Events = () => {
@@ -26,39 +26,32 @@ const Events = () => {
 
     return isLoading ? (
 
-        <Segment padded='very'>
-            <Loader active inline='centered' />
-        </Segment>
+        <Spinner animation="grow" />
 
     )
         :
         (
-            <Card.Group itemsPerRow={3}>
-
-                {events.map(elem => (
-
-
-                    <Card color='red'>
-                        <Card.Content>
-                            <Card.Header>{elem.name}</Card.Header>
-                            <Card.Content  style={{marginTop:'20px'}}>
-                                <span >Place: {elem.place.join(', ')}</span>
-                            </Card.Content>
-                            <Card.Content  style={{marginTop:'10px'}}>
-                            <h5 style={{color:'brown'}}>Participants:</h5> {elem.participants.length === 0 ? `Unattended` : elem.participants.join(', ')}
-                            </Card.Content>
-                            <Card.Content  style={{marginTop:'10px'}}>
-                                <h5 style={{color:'red'}}>Casualties:</h5> {elem.casualties.length === 0 ? `None` : elem.casualties.join(', ')}
-                            </Card.Content>
-                        </Card.Content>
-                        <Card.Content as='h2'>
-                            <h5 style={{color:'orange'}}>Conflict:</h5> {elem.conflict === '' ? `Unknown` : elem.conflict}
-                        </Card.Content>
-                    </Card>
-
+            <div class="row row-cols-1 row-cols-md-3 g-4" >
+            {events.map(elem => (
+                <div class="col" style={{alignContent:'center'}}>
+                <Card border="info" style={{ width: '18rem',padding:'5px',marginTop:'20px' }}>
+                    <Card.Header><text style={{fontStyle: 'italic',fontWeight: 'bold',color: '#4CAF50'}}>Place:</text>  <br /><text style={{fontFamily: 'Verdana, sans-serif'}}>{elem.place.join(', ')}</text></Card.Header>
+                    <Card.Body>
+                        <Card.Title>{elem.name}</Card.Title>
+                        <Card.Text>
+                        <section><text style={{fontStyle: 'italic',fontWeight: 'bold',color: '#FF8C00'}}>Participants:</text> <br /><text style={{fontFamily: 'Verdana, sans-serif'}}>{elem.participants.length === 0 ? `Unattended` : elem.participants.join(', ')}</text>
+                        </section>
+                        <section><text style={{fontStyle: 'italic',fontWeight: 'bold',color: '#DC143C'}}>Casualties:</text> <br/><text style={{fontFamily: 'Verdana, sans-serif'}}>{elem.casualties.length === 0 ? `None` : elem.casualties.join(', ')}</text>
+                        </section>
+                        <section><text style={{fontStyle: 'italic',fontWeight: 'bold',color: '#999900'}}>Conflict: </text> <br/><text style={{fontFamily: 'Verdana, sans-serif'}}>{elem.conflict === '' ? `Unknown` : elem.conflict}</text></section>
+                    </Card.Text>
+                    </Card.Body>
+                </Card>
+                </div>
                 ))}
-
-            </Card.Group>
+                </div>
+            
+                
         )
 }
 

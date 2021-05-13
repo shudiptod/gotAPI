@@ -1,27 +1,37 @@
 import React from 'react'
-import { Menu, Container } from 'semantic-ui-react';
+import { Container, Navbar, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+
+const NavBar = () => {
     return (
 
-        <Menu inverted>
+        
             <Container>
-                <Link to='/' >
-                    <Menu.Item as='a' name="Game Of Thrones API" />
-                </Link>
-                <Link to='/characters' >
-                    <Menu.Item as='a' name="Characters" />
-                </Link>
-                <Link to='/houses' >
-                    <Menu.Item as='a' name="Houses" />
-                </Link>
-                <Link to='/events' >
-                    <Menu.Item as='a' name="Events" />
-                </Link>
-                <Link to='/battles' >
-                    <Menu.Item as='a' name="Battles" />
-                </Link>
+                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                    
+                        <Navbar.Brand as={Link} to='/' >Game Of Thrones API</Navbar.Brand>
+
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mr-auto">
+                            
+                                <Nav.Link as={Link} to='/characters'  >Characters</Nav.Link>
+                            
+                                <Nav.Link as={Link} to='/houses' >Houses</Nav.Link>
+                            
+                                <Nav.Link as={Link} to='/events'>Events</Nav.Link>
+                            
+                            
+                                <Nav.Link as={Link}  to='/battles' >Battles</Nav.Link>
+                            
+
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+
+
+
 
 
 
@@ -29,9 +39,9 @@ const Navbar = () => {
 
 
             </Container>
-        </Menu>
+        
 
     )
 }
 
-export default Navbar
+export default NavBar

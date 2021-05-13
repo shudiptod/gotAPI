@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card,Image, Segment,Loader } from 'semantic-ui-react';
-import dhouse from '../../../src/dhouse.jpg'
+
+import {Image, Spinner} from 'react-bootstrap';
+import dhouse from '../../../src/dhouse.jpg';
 
 
 export const Houses = () => {
@@ -29,35 +30,26 @@ export const Houses = () => {
 
     return isLoading ?(
         
-            <Segment padded='very'>
-                <Loader active inline='centered' />
-            
-          </Segment>
+        <Spinner animation="grow" />
           
           ):(
-        <Card.Group itemsPerRow={4}>
-               
-        {house.map(elem=> (
-                
-            
-                <Card color='red'>
-                <Image src={elem.logoURL===undefined?dhouse:elem.logoURL} size='medium' />
-                <Card.Content>
-                    <Card.Header>{elem.name}</Card.Header>
-                    <Card.Meta>
-                        <span >Region: {elem.region}</span>
-                    </Card.Meta>
-                    <Card.Description>
-                        Sigil: {elem.sigil===''?`None`:elem.sigil}
-                    </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                   Words: {elem.words===''?`None`:elem.words}
-                </Card.Content>
-            </Card>
-            
-        ))}
-
-    </Card.Group>
+              
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                {house.map(elem => (
+                    <div class="col">
+                        <div class="card" style={{ width: '18rem',padding:'5px',marginTop:'20px' }}>
+                        <Image src={elem.logoURL===undefined?dhouse:elem.logoURL} style={{ width: 'auto', height: 'auto' }} />
+                            <div class="card-body">
+                                <h5 class="card-title">{elem.name}</h5>
+                                <p class="card-text"> Region: {elem.region}</p>
+                                <p class="card-text"> Sigil: {elem.sigil===''?`None`:elem.sigil} </p>
+                                
+                                <section>Words: {elem.words===''?`None`:elem.words}</section>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+       
     )
 }

@@ -1,27 +1,24 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import { Container } from 'semantic-ui-react';
-import Navbar from './Components/Navbar';
+
+import NavBar from './Components/Navbar';
 import { Characters } from './Components/Data/Characters';
 import { Houses } from './Components/Data/Houses';
-
 import { Home } from './Components/Home';
 import Events from './Components/Data/Events';
 import Battles from './Components/Data/Battles';
 
+import {Container} from 'react-bootstrap';
 
 function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        <NavBar />
         <Container>
           <Switch>
             <Route exact path='/'>
